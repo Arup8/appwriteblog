@@ -198,7 +198,7 @@ export default function PostForm({ post }) {
             }
         }
     };
-// we have two i/p tags one is title & another is slug watch title & generate the value in slug if user give space then it will convert it into '-' in url
+
     const slugTransform = useCallback((value) => {
         if (value && typeof value === "string")
             return value
@@ -216,7 +216,7 @@ export default function PostForm({ post }) {
                 setValue("slug", slugTransform(value.title), { shouldValidate: true });
             }
         });
-         // to optimise that always store that in variable in above & then use a callback & use unsubscribe
+
         return () => subscription.unsubscribe();
     }, [watch, slugTransform, setValue]);
 
